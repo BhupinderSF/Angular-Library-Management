@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Login } from './loginmodel';
 import { LoginService } from '../services/login.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -12,7 +13,8 @@ import { LoginService } from '../services/login.service';
 export class LoginComponent {
 
     constructor(
-        private loginService: LoginService
+        private loginService: LoginService,
+        private router: Router
     ) {}
 
     // login: any = {};
@@ -23,6 +25,7 @@ export class LoginComponent {
         this.isLoggedIn = this.loginService.authenticateUser(loginDetails);
         if (this.isLoggedIn) {
             alert('success');
+            this.router.navigateByUrl('/dashboard');
         } else {
             alert('failure');
         }

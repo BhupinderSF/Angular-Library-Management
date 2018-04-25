@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 // Custom Services
 import { LoginService } from './services/login.service';
+import { BooklistingService } from './services/booklisting.service';
 
 const appRoutes: Routes= [
   {
@@ -33,7 +34,7 @@ const appRoutes: Routes= [
     BrowserModule,
     FormsModule,
   ],
-  providers:[LoginService],
+  providers:[LoginService, BooklistingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
