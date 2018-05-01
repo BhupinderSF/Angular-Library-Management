@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 // Custom components
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { IssueComponent } from './book/issue.component';
+import { PagesComponent } from './template/pages.component';
 // Custom Services
 import { LoginService } from './services/login.service';
 import { BooklistingService } from './services/booklisting.service';
@@ -20,6 +22,12 @@ const appRoutes: Routes= [
     pathMatch: 'full'
   },
   { path:'dashboard',component:DashboardComponent
+  },
+  // {
+  //   path: 'issuebook', component: IssueComponent
+  // },
+  {
+    path: 'pages/*', component: PagesComponent
   }
 ];
 
@@ -27,7 +35,9 @@ const appRoutes: Routes= [
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    IssueComponent,
+    PagesComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes,{ enableTracing: true }),
