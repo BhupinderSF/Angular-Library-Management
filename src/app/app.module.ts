@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { IssueComponent } from './book/issue.component';
-import { PagesComponent } from './template/pages.component';
+import { TemplateComponent } from './template/template.component';
 // Custom Services
 import { LoginService } from './services/login.service';
 import { BooklistingService } from './services/booklisting.service';
@@ -28,8 +28,8 @@ const appRoutes: Routes= [
   // },
   {
     path: 'pages',
-    loadChildren: './template/pages.module#PagesModule',
-    component: PagesComponent
+    loadChildren: './template/template.module#TemplateModule'
+    // component: PagesComponent
   }
 ];
 
@@ -38,8 +38,7 @@ const appRoutes: Routes= [
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    IssueComponent,
-    PagesComponent
+    IssueComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes,{ enableTracing: true }),

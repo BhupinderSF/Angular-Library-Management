@@ -8,7 +8,7 @@ import { switchMap } from 'rxjs/operators';
     styleUrls: ['../common/common.css']
 })
 
-export class PagesComponent{
+export class TemplateComponent{
 
     constructor(
         private route: ActivatedRoute,
