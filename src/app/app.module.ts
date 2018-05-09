@@ -27,7 +27,9 @@ const appRoutes: Routes= [
   //   path: 'issuebook', component: IssueComponent
   // },
   {
-    path: 'pages/*', component: PagesComponent
+    path: 'pages',
+    loadChildren: './template/pages.module#PagesModule',
+    component: PagesComponent
   }
 ];
 
