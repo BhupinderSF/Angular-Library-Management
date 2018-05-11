@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { TemplateRoutingModule } from './template-routing.module';
 import { TemplateComponent } from './template.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
     imports: [
@@ -11,8 +10,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
         TemplateRoutingModule
     ],
     declarations: [
-        TemplateComponent,
-        DashboardComponent
+        TemplateComponent
     ],
     providers: [
     ]

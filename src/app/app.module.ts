@@ -6,7 +6,6 @@ import { RouterModule, Routes }   from '@angular/router';
 import { AppComponent } from './app.component';
 // Custom components
 import { LoginComponent } from './login/login.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { IssueComponent } from './book/issue.component';
 import { TemplateComponent } from './template/template.component';
 // Custom Services
@@ -21,15 +20,9 @@ const appRoutes: Routes= [
     redirectTo: '/login',
     pathMatch: 'full'
   },
-  { path:'dashboard',component:DashboardComponent
-  },
-  // {
-  //   path: 'issuebook', component: IssueComponent
-  // },
   {
     path: 'pages',
     loadChildren: './template/template.module#TemplateModule'
-    // component: PagesComponent
   }
 ];
 
@@ -37,7 +30,6 @@ const appRoutes: Routes= [
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent,
     IssueComponent
   ],
   imports: [

@@ -7,7 +7,10 @@ const routes: Routes = [
         path: '', component: TemplateComponent,
         children: [
             {
-                path: 'dashboard', loadChildren:'../dashboard/da'
+                path: 'dashboard', loadChildren:'../dashboard/dashboard.module#DashboardModule'
+            },
+            {
+                path: 'issueme/:id', loadChildren: '../issueme/issueme.module#IssuemeModule'
             }
             // { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' },
             // { path: 'inquiry', loadChildren: './inquiry/inquiry.module#InquiryModule' },

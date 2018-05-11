@@ -25,7 +25,7 @@ export class LoginComponent {
         this.isLoggedIn = this.loginService.authenticateUser(loginDetails);
         if (this.isLoggedIn) {
             alert('success');
-            this.router.navigateByUrl('/dashboard');
+            this.router.navigateByUrl('/pages/dashboard');
         } else {
             alert('failure');
         }

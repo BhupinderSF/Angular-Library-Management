@@ -8,7 +8,7 @@ import { BooklistingService } from '../services/booklisting.service';
 })
 export class DashboardComponent {
     title = 'Books Slab';
-    bookslist;
+    bookslist = [];
 
     constructor(private booklistService : BooklistingService) {}
 
