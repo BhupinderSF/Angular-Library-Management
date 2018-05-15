@@ -13,12 +13,15 @@
             <input type='text' value="{{bookDetails.charges_per_day}}" disabled placeholder="Charges Per Day" id='charges_per_day' />
         </div>
         <div class='form-group'>
-                <my-date-picker name="mydate" [options]="myDatePickerOptions"
-                [(ngModel)]="defaultDate" required></my-date-picker>
+                <label for="start_date">Start Date</label>
+                <my-date-picker id="start_date" name="mydate" [options]="myDatePickerOptions"
+                [(ngModel)]="startDate" required></my-date-picker>
         </div>
         <div class='form-group'>
-            <label for="book_to">To</label>
-            <input type='text' placeholder="Book To" id='book_to' />
+                <label for="end_date">End Date</label>
+                <!-- <my-date-picker id="end_date" name="mydate" [options]="myDatePickerOptions"
+                [(ngModel)]="endDate" required></my-date-picker> -->
         </div>
+        {{endDate}}
     </form>
 </div>

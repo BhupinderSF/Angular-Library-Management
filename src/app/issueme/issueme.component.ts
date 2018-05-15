@@ -27,7 +27,8 @@ export class IssuemeComponent {
     };
 
     // Initialized to specific date (09.10.2018).
-    public defaultDate: any = { date: { year: 2018, month: 10, day: 9 } };
+    public startDate: any = { date: { year: 2018, month: 10, day: 9 } };
+    public endDate: any = { date: { year: 2018, month: 10, day: 9 } };
 
     // route = Router;
     // p1 = this.route.snapshot.params['bank'];
