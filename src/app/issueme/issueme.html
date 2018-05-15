@@ -1,3 +1,24 @@
-<div>
-    
+<div class="row">
+    <form>
+        <div class='form-group'>
+            <label for="book_name">Book Name</label>
+            <input type='text' value="{{bookDetails.book_name}}" disabled placeholder="Book Name" id='book_name' />
+        </div>
+        <div class='form-group'>
+            <label for="author">Author</label>
+            <input type='text' value="{{bookDetails.author}}" disabled placeholder="Author Name" id='author' />
+        </div>
+        <div class='form-group'>
+            <label for="charges_per_day">Charges Per Day</label>
+            <input type='text' value="{{bookDetails.charges_per_day}}" disabled placeholder="Charges Per Day" id='charges_per_day' />
+        </div>
+        <div class='form-group'>
+                <my-date-picker name="mydate" [options]="myDatePickerOptions"
+                [(ngModel)]="defaultDate" required></my-date-picker>
+        </div>
+        <div class='form-group'>
+            <label for="book_to">To</label>
+            <input type='text' placeholder="Book To" id='book_to' />
+        </div>
+    </form>
 </div>

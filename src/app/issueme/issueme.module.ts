@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes }   from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // Custom component
 import { IssuemeComponent } from '../issueme/issueme.component';
+import { MyDatePickerModule } from 'mydatepicker';
 
 const routes: Routes= [
     {
@@ -13,7 +15,9 @@ const routes: Routes= [
 @NgModule({
     imports:[
         CommonModule,
-        RouterModule.forChild(routes)
+        RouterModule.forChild(routes),
+        MyDatePickerModule,
+        FormsModule
     ],
     declarations: [IssuemeComponent],
     providers:[]
