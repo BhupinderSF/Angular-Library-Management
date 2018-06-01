@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { BooklistingService } from '../services/booklisting.service';
-import {IMyDpOptions} from 'mydatepicker';
+// import { CalendarModule } from 'primeng/primeng';
+import {CalendarModule} from 'primeng/calendar';
+
 
 @Component({
     selector: 'issue-me',
@@ -9,6 +11,8 @@ import {IMyDpOptions} from 'mydatepicker';
 })
 
 export class IssuemeComponent {
+    date: Date = new Date();
+  dateFix: Date = new Date();
     constructor(
         private route:ActivatedRoute,
         private listingservice : BooklistingService
@@ -19,17 +23,10 @@ export class IssuemeComponent {
     ngOnInit() {
         this.book_id = this.route.snapshot.params['id'];
         this.bookDetails = this.listingservice.getBookById(this.book_id);
+
+        this.dateFix = new Date(this.date.getTime() + (this.date.getTimezoneOffset() * 60 * 1000));
+
+        this.date = new Date(this.dateFix.getTime() - (this.date.getTimezoneOffset() * 60 * 1000));  
     }
 
-    public myDatePickerOptions: IMyDpOptions = {
-        // other options...
-        dateFormat: 'dd.mm.yyyy',
-    };
-
-    // Initialized to specific date (09.10.2018).
-    public startDate: any = { date: { year: 2018, month: 10, day: 9 } };
-    public endDate: any = { date: { year: 2018, month: 10, day: 9 } };
-
-    // route = Router;
-    // p1 = this.route.snapshot.params['bank'];
 }

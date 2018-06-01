@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
+import {BlockUIModule} from 'primeng/primeng';
 
 @Component({
     selector: 'main-template',

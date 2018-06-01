@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
 import { RouterModule, Routes }   from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 // Custom components
@@ -36,6 +37,7 @@ const appRoutes: Routes= [
     RouterModule.forRoot(appRoutes,{ enableTracing: true }),
     BrowserModule,
     FormsModule,
+    BrowserAnimationsModule
   ],
   providers:[LoginService, BooklistingService],
   bootstrap: [AppComponent]

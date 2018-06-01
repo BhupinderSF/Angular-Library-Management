@@ -1,27 +1,27 @@
+<!-- <link rel="stylesheet" type="text/css" href="YOUR_PATH/font-awesome.min.css" /> -->
+
 <div class="row">
     <form>
         <div class='form-group'>
             <label for="book_name">Book Name</label>
-            <input type='text' value="{{bookDetails.book_name}}" disabled placeholder="Book Name" id='book_name' />
+            <input type='text' class="form-control" value="{{bookDetails.book_name}}" disabled placeholder="Book Name" id='book_name' />
         </div>
         <div class='form-group'>
             <label for="author">Author</label>
-            <input type='text' value="{{bookDetails.author}}" disabled placeholder="Author Name" id='author' />
+            <input type='text' class="form-control" value="{{bookDetails.author}}" disabled placeholder="Author Name" id='author' />
         </div>
         <div class='form-group'>
             <label for="charges_per_day">Charges Per Day</label>
-            <input type='text' value="{{bookDetails.charges_per_day}}" disabled placeholder="Charges Per Day" id='charges_per_day' />
+            <input type='text' class="form-control" value="{{bookDetails.charges_per_day}}" disabled placeholder="Charges Per Day" id='charges_per_day' />
         </div>
         <div class='form-group'>
                 <label for="start_date">Start Date</label>
-                <my-date-picker id="start_date" name="mydate" [options]="myDatePickerOptions"
-                [(ngModel)]="startDate" required></my-date-picker>
         </div>
         <div class='form-group'>
                 <label for="end_date">End Date</label>
-                <!-- <my-date-picker id="end_date" name="mydate" [options]="myDatePickerOptions"
-                [(ngModel)]="endDate" required></my-date-picker> -->
+                
+                <p-calendar [(ngModel)]="dateFix" name="t" hourFormat="24" ></p-calendar>
+                <span>{{ date }}</span>
         </div>
-        {{endDate}}
     </form>
 </div>
