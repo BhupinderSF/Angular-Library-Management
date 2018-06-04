@@ -2,26 +2,40 @@
 
 <div class="row">
     <form>
-        <div class='form-group'>
-            <label for="book_name">Book Name</label>
-            <input type='text' class="form-control" value="{{bookDetails.book_name}}" disabled placeholder="Book Name" id='book_name' />
+        <div class="row">
+                <div class="col-sm-6">
+                        <div class='form-group'>
+                            <label for="book_name">Book Name</label>
+                            <input type='text' class="form-control" value="{{bookDetails.book_name}}" disabled placeholder="Book Name" id='book_name' />
+                        </div>
+                        <div class='form-group'>
+                            <label for="author">Author</label>
+                            <input type='text' class="form-control" value="{{bookDetails.author}}" disabled placeholder="Author Name" id='author' />
+                        </div>
+                        <div class='form-group'>
+                            <label for="charges_per_day">Charges Per Day</label>
+                            <input type='text' class="form-control" value="{{bookDetails.charges_per_day}}" disabled placeholder="Charges Per Day" id='charges_per_day' />
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class='form-group'>
+                                <label for="start_date">Start Date</label>
+                                <my-date-picker name="start_date" (dateChanged)="calcAmtToPay(startDate,endDate,bookDetails.charges_per_day)" [options]="myDatePickerOptions"
+                                    [(ngModel)]="startDate" required #sDate></my-date-picker>
+                        </div>
+                        <div class='form-group'>
+                                <label for="end_date">End Date</label>
+                                <my-date-picker name="end_date" [options]="myDatePickerOptions"
+                                    [(ngModel)]="endDate" (dateChanged)="calcAmtToPay(startDate,endDate,bookDetails.charges_per_day)" required #eDate></my-date-picker>
+                        </div>
+                        <div class='form-group'>
+                                <label for="amt_to_pay">Amount To Pay</label>
+                                <input type='text' [ngModel]="amount_to_pay" name='amt_to_pay' id='amt_to_pay' class='form-control amt_to_pay' disabled />
+                        </div>
+                    </div>
         </div>
         <div class='form-group'>
-            <label for="author">Author</label>
-            <input type='text' class="form-control" value="{{bookDetails.author}}" disabled placeholder="Author Name" id='author' />
-        </div>
-        <div class='form-group'>
-            <label for="charges_per_day">Charges Per Day</label>
-            <input type='text' class="form-control" value="{{bookDetails.charges_per_day}}" disabled placeholder="Charges Per Day" id='charges_per_day' />
-        </div>
-        <div class='form-group'>
-                <label for="start_date">Start Date</label>
-        </div>
-        <div class='form-group'>
-                <label for="end_date">End Date</label>
-                
-                <p-calendar [(ngModel)]="dateFix" name="t" hourFormat="24" ></p-calendar>
-                <span>{{ date }}</span>
+            <button type="button" (click)='validateForm()' class="btn">Proceed with booking</button>
         </div>
     </form>
 </div>

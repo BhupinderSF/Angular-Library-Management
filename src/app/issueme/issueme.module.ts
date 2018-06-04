@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes }   from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {CalendarModule} from 'primeng/calendar';
+
+import { MyDatePickerModule } from 'mydatepicker';
 // Custom component
 import { IssuemeComponent } from '../issueme/issueme.component';
 
@@ -17,7 +18,7 @@ const routes: Routes= [
         CommonModule,
         RouterModule.forChild(routes),
         FormsModule,
-        CalendarModule
+        MyDatePickerModule
     ],
     declarations: [IssuemeComponent],
     providers:[]

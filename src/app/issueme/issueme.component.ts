@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { BooklistingService } from '../services/booklisting.service';
-// import { CalendarModule } from 'primeng/primeng';
-import {CalendarModule} from 'primeng/calendar';
+
+import { IMyDpOptions } from 'mydatepicker';
 
 
 @Component({
@@ -11,22 +11,52 @@ import {CalendarModule} from 'primeng/calendar';
 })
 
 export class IssuemeComponent {
-    date: Date = new Date();
-  dateFix: Date = new Date();
+    
+    public myDatePickerOptions: IMyDpOptions = {
+        // other options...
+        dateFormat: 'dd.mm.yyyy',
+    };
+ 
+    // Initialized to specific date (09.10.2018).
+    public startDate: any = { date: { year: 2018, month: 10, day: 9 } };
+    public endDate: any = { date: { year: 2018, month: 10, day: 10 } };
+
     constructor(
         private route:ActivatedRoute,
         private listingservice : BooklistingService
     ) {}
+
     book_id: string;
     bookDetails;
+    amount_to_pay: any = 0;
 
     ngOnInit() {
         this.book_id = this.route.snapshot.params['id'];
         this.bookDetails = this.listingservice.getBookById(this.book_id);
+    }
 
-        this.dateFix = new Date(this.date.getTime() + (this.date.getTimezoneOffset() * 60 * 1000));
+    calcAmtToPay(sDate, eDate, charges_per_day) {
 
-        this.date = new Date(this.dateFix.getTime() - (this.date.getTimezoneOffset() * 60 * 1000));  
+        let one_day = 1000*60*60*24;
+        let sd = sDate.date;
+        let ed = eDate.date;
+
+        let StartDates = new Date(sd.year, sd.month, sd.day);
+        let EndDate = new Date(ed.year, ed.month, ed.day);
+
+        // Calculate the difference in milliseconds
+        let difference_ms = EndDate.getTime() - StartDates.getTime();
+            
+        // Convert back to days and return
+        this.amount_to_pay =  (Math.round(difference_ms/one_day)*charges_per_day); 
+    }
+
+    validateForm() {
+        if (!(this.amount_to_pay > 0)) {
+            alert("Please select appropriate dates and try again.");
+            return false;
+        }
+        alert('Payment processed successfully.');
     }
 
 }
