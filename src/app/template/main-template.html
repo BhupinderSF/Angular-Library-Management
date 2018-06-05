@@ -1,11 +1,19 @@
 <div class="container">
-        <div class='row library_header'>Library System - {{title}}</div>
-        <div class='row'>
-            <div class='col-sm-2'>
-                <sidebar></sidebar>
-            </div>
-            <div class='col-sm-10'>
-                <router-outlet></router-outlet>
-            </div>
+    <div class='row library_header'>Library System - {{title}}</div>
+    <div class='row'>
+        <div class="col-sm-12">
+            <bread-crum></bread-crum>
+        </div>
+        <div class='col-sm-2'>
+            <sidebar></sidebar>
+        </div>
+        <div class='col-sm-10'>
+            <router-outlet></router-outlet>
         </div>
     </div>
+    <div class='row footer_container'>
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">All rights copied &copy;2018</div>
+        <div class="col-sm-4"></div>
+    </div>
+</div>

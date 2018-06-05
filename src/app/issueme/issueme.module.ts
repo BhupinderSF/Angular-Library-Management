@@ -9,7 +9,10 @@ import { IssuemeComponent } from '../issueme/issueme.component';
 
 const routes: Routes= [
     {
-      path:'',component:IssuemeComponent
+      path:'',component:IssuemeComponent,
+      data:{
+          breadcumb: "Issue Book"
+      }
     }
   ];
 
