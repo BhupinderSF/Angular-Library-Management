@@ -7,10 +7,12 @@ const routes: Routes = [
         path: '', component: TemplateComponent,
         children: [
             {
-                path: 'dashboard', loadChildren:'../dashboard/dashboard.module#DashboardModule'
+                path: 'dashboard', loadChildren:'../dashboard/dashboard.module#DashboardModule',
+                data: [{title:"Books Shelf",link: 'dashboard'}]
             },
             {
-                path: 'issueme/:id', loadChildren: '../issueme/issueme.module#IssuemeModule'
+                path: 'issueme/:id', loadChildren: '../issueme/issueme.module#IssuemeModule',
+                data: [{title:"Issue a Book",link: ''}]
             }
             // { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' },
             // { path: 'inquiry', loadChildren: './inquiry/inquiry.module#InquiryModule' },
