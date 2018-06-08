@@ -1,6 +1,7 @@
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes }   from '@angular/router';
 import { CommonModule } from '@angular/common';
+import {NgxPaginationModule} from 'ngx-pagination';
 // custom commonent
 import { DashboardComponent } from './dashboard.component';
 
@@ -16,7 +17,8 @@ const routes: Routes= [
 @NgModule({
     imports: [
         CommonModule,
-        RouterModule.forChild(routes)
+        RouterModule.forChild(routes),
+        NgxPaginationModule
     ],
     declarations: [
         DashboardComponent

@@ -10,6 +10,8 @@ export class DashboardComponent {
     title = 'Books Slab';
     bookslist = [];
 
+    p: number = 1;
+
     constructor(private booklistService : BooklistingService) {}
 
     ngOnInit() {

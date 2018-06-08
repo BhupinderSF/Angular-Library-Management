@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { BooklistingService } from '../services/booklisting.service';
+import { CommonService } from '../services/common.service';
+import { Location } from '@angular/common';
 
 import { IMyDpOptions } from 'mydatepicker';
 
@@ -23,7 +25,8 @@ export class IssuemeComponent {
 
     constructor(
         private route:ActivatedRoute,
-        private listingservice : BooklistingService
+        private listingservice : BooklistingService,
+        private _location: Location
     ) {}
 
     book_id: string;
@@ -57,6 +60,10 @@ export class IssuemeComponent {
             return false;
         }
         alert('Payment processed successfully.');
+    }
+
+    goBack() {
+        this._location.back();
     }
 
 }
