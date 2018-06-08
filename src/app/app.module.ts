@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 // Custom components
 import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './login/logout.component';
 import { IssueComponent } from './book/issue.component';
 import { TemplateComponent } from './template/template.component';
 // Custom Services
@@ -24,6 +25,10 @@ const appRoutes: Routes= [
   {
     path: 'pages',
     loadChildren: './template/template.module#TemplateModule'
+  },
+  {
+    path: 'logout',
+    component: LogoutComponent
   }
 ];
 
@@ -31,7 +36,8 @@ const appRoutes: Routes= [
   declarations: [
     AppComponent,
     LoginComponent,
-    IssueComponent
+    IssueComponent,
+    LogoutComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes,{ enableTracing: true }),

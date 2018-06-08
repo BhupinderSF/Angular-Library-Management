@@ -15,7 +15,11 @@ export class LoginComponent {
     constructor(
         private loginService: LoginService,
         private router: Router
-    ) {}
+    ) {
+        if (this.loginService.isAlreadyLoggedIn()){
+            this.router.navigate(['/pages/dashboard']);
+        }
+    }
 
     // login: any = {};
     login = Login;
