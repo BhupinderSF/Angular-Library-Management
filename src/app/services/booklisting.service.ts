@@ -82,4 +82,10 @@ export class BooklistingService{
 
     }
 
+    uploadFile(fileToUpload: File) {
+        const _formData = new FormData();
+        _formData.append('file', fileToUpload, fileToUpload.name);   
+        return _formData.get('file');
+      }
+
 }

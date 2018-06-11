@@ -66,4 +66,18 @@ export class IssuemeComponent {
         this._location.back();
     }
 
+    uploadProof($event) {
+        const fileSelected: File = $event.target.files[0];
+        this.listingservice.uploadFile(fileSelected);
+
+        // this.myFileUploadService.uploadFile(fileSelected)
+        // .subscribe( (response) => {
+        //     console.log('set any success actions...');
+        //     return response;
+        //     }.
+        //     (error) => {
+        //     console.log('set any error actions...');
+        //     });
+    }
+
 }
