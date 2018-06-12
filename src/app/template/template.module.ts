@@ -5,6 +5,7 @@ import { TemplateRoutingModule } from './template-routing.module';
 import { BreadcrumModule } from '../partials/breadcrum/breadcrum.module';
 // import { SidebarModule } from '../partials/sidebar/sidebar.module';
 import { SidebarComponent } from '../partials/sidebar/sidebar.component';
+import { TitleService } from '../services/title.service';
 // import { BreadcrumService } from '../services/breadcrum.service';
 // import { BreadcrumComponent } from '../partials/breadcrum/breadcrum.component';
 import { TemplateComponent } from './template.component';
@@ -24,6 +25,7 @@ import { TemplateComponent } from './template.component';
     ],
     providers: [
         // BreadcrumService
+        TitleService
     ]
 })
 export class TemplateModule { }

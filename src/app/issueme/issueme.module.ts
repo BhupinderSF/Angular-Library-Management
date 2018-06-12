@@ -11,7 +11,7 @@ const routes: Routes= [
     {
       path:'',component:IssuemeComponent,
       data:{
-          breadcumb: "Issue Book"
+          title: "Issue Book"
       }
     }
   ];

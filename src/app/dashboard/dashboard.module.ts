@@ -9,7 +9,7 @@ const routes: Routes= [
     {
       path:'',component:DashboardComponent,
       data:{
-          breadcumb: "Dashboard"
+          title: "Dashboard"
       }
     }
   ];
