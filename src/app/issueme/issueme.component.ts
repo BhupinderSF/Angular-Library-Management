@@ -91,6 +91,11 @@ export class IssuemeComponent {
         let eDate =  this.endDate;
         let amtToPay = this.amount_to_pay;
 
+        if (amtToPay==0) {
+            alert('Please select valid Dates.');
+            return false;
+        }
+
         let finalDate = sDate.date.year+"."+sDate.date.month+"."+sDate.date.day+" - "+eDate.date.year+"."+eDate.date.month+"."+eDate.date.day;
         let doc = new jsPDF();
         doc.text(20,20,'Library Invoice');
@@ -98,7 +103,6 @@ export class IssuemeComponent {
         doc.text(50,30,finalDate);
         doc.text(30,40,'Amount Need To Pay: ');
         doc.text(70,40,amtToPay.toString());
-        // doc.text(10,10,amtToPay);
         doc.save('Invoice-Library.pdf');
     }
 
