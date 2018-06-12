@@ -3,6 +3,7 @@ import { ActivatedRoute } from "@angular/router";
 import { BooklistingService } from '../services/booklisting.service';
 import { CommonService } from '../services/common.service';
 import { Location } from '@angular/common';
+import  * as jsPDF  from 'jspdf'
 
 import { IMyDpOptions } from 'mydatepicker';
 
@@ -22,6 +23,9 @@ export class IssuemeComponent {
     // Initialized to specific date (09.10.2018).
     public startDate: any = { date: { year: 2018, month: 10, day: 9 } };
     public endDate: any = { date: { year: 2018, month: 10, day: 10 } };
+    public fileDetails: any = {
+        name:''
+    }
 
     constructor(
         private route:ActivatedRoute,
@@ -68,7 +72,9 @@ export class IssuemeComponent {
 
     uploadProof($event) {
         const fileSelected: File = $event.target.files[0];
-        this.listingservice.uploadFile(fileSelected);
+        this.fileDetails = this.listingservice.uploadFile(fileSelected);
+
+        alert("Uploaded File Name is: "+this.fileDetails.name);
 
         // this.myFileUploadService.uploadFile(fileSelected)
         // .subscribe( (response) => {
@@ -78,6 +84,22 @@ export class IssuemeComponent {
         //     (error) => {
         //     console.log('set any error actions...');
         //     });
+    }
+
+    generateInvoice() {
+        let sDate = this.startDate;
+        let eDate =  this.endDate;
+        let amtToPay = this.amount_to_pay;
+
+        let finalDate = sDate.date.year+"."+sDate.date.month+"."+sDate.date.day+" - "+eDate.date.year+"."+eDate.date.month+"."+eDate.date.day;
+        let doc = new jsPDF();
+        doc.text(20,20,'Library Invoice');
+        doc.text(30,30,'From: ');
+        doc.text(50,30,finalDate);
+        doc.text(30,40,'Amount Need To Pay: ');
+        doc.text(70,40,amtToPay.toString());
+        // doc.text(10,10,amtToPay);
+        doc.save('Invoice-Library.pdf');
     }
 
 }

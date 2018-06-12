@@ -36,6 +36,9 @@
                                 <label for="amt_to_pay">Amount To Pay</label>
                                 <input type='text' [ngModel]="amount_to_pay" name='amt_to_pay' id='amt_to_pay' class='form-control amt_to_pay' disabled />
                         </div>
+                        <div class='form-group'>
+                            <button type="button" (click)='generateInvoice()' class="btn generate_invoice">Generate Invoice</button>
+                        </div>
                     </div>
         </div>
         <div class='form-group'>
